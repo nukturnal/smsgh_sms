@@ -10,7 +10,7 @@ module SmsghSms
   # Expects :msg, :to and an optional :from param
   # The :from param defaults to @@api_senderid when its omitted
   
-  def self.push(options={})
+  def self.pushsms(options={})
     url_construct = "#{API_URL}&username=#{@@api_username}&password=#{@@api_password}&from=#{@@api_senderid}"
     full_url = "#{url_construct}&text=#{CGI.escape(options[:msg])}&to=#{options[:to]}"
     raise ArgumentError, ':msg and :to params expected' if options[:msg].nil? || options[:to].nil?
