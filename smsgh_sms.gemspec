@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["alfred@ncodedevlabs.com"]
   gem.description   = %q{This is a ruby wrapper that abstracts the SMSGH's SMS API. This gem has extra garnishing to make smsing via Ruby more tasteful and less painful.'}
   gem.summary       = %q{Send SMS via SMSGH's API}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/nukturnal/smsgh_sms"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
