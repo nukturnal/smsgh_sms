@@ -1,5 +1,6 @@
 require "smsgh_sms/version"
 require 'cgi'
+require 'curb-fu'
 
 module SmsghSms
   API_URL = "http://api.smsgh.com/v2/messages/send?"
@@ -22,7 +23,7 @@ module SmsghSms
     
   end
   
-  def self.api_url(url=''); @@api_base + url; end
+  
   def self.api_username=(api_username); @@api_username = api_username; end
   def self.api_username; @@api_username; end
   def self.api_password=(api_password); @@api_password = api_password; end
