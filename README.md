@@ -1,6 +1,6 @@
 # SmsghSms
 
-TODO: Write a gem description
+This is a ruby wrapper that abstracts the SMSGH's SMS API. This gem has extra garnishing to make smsing via Ruby more tasteful and less painful.
 
 ## Installation
 
