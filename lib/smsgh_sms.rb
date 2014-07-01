@@ -3,8 +3,6 @@ require 'cgi'
 require 'curb-fu'
 
 module SmsghSms
-  API_URL_V2 = "http://api.smsgh.com/v2/messages/send?"
-  API_URL_V3 = "https://api.smsgh.com/v3/messages/send?"
   @@api_username = nil
   @@api_password = nil
   @@api_client_id = nil
@@ -16,22 +14,18 @@ module SmsghSms
   def self.push(options={})
     
     sender_id = options[:from].nil? ? @@api_senderid : options[:from]
-    api_base = nil
-    url = nil
+    response = nil
+
+    raise ArgumentError, ':msg and :to params expected' if options[:msg].nil? || options[:to].nil?
 
     if @@api_username != nil && @@api_password != nil
-      api_base = "#{API_URL_V2}&username=#{@@api_username}&password=#{@@api_password}&from=#{sender_id}"
-      url = "#{api_base}&text=#{CGI.escape(options[:msg])}&to=#{options[:to]}"
+      response = CurbFu.get({:host => 'api.smsgh.com', :path => '/v2/messages/send'}, { :from => sender_id, :to => options[:to], :text => options[:msg], :username => @@api_username, :password => @@api_password })
     end
 
     if @@api_client_id != nil && @@api_client_secret != nil
-      api_base = "#{API_URL_V3}&ClientId=#{@@api_client_id}&ClientSecret=#{@@api_client_secret}&From=#{sender_id}"
-      url = "#{api_base}&Content=#{CGI.escape(options[:msg])}&To=#{CGI.escape(options[:to])}"
-    end
-  
-    raise ArgumentError, ':msg and :to params expected' if options[:msg].nil? || options[:to].nil?
+      response = CurbFu.get({:host => 'api.smsgh.com', :path => '/v3/messages/send', :protocol => 'https'}, { :From => sender_id, :To => options[:to], :Content => options[:msg], :ClientId => @@api_client_id, :ClientSecret => @@api_client_secret })
+    end  
     
-    response = CurbFu.get(url)
     {:status => response.status, :notice => response.body}
     
   end
@@ -46,6 +40,9 @@ module SmsghSms
   def self.api_client_secret=(api_client_secret); @@api_client_secret = api_client_secret; end
   def self.api_password; @@api_client_secret; end
   def self.api_senderid=(api_senderid); @@api_senderid = api_senderid; end
+  def self.api_senderid; @@api_senderid; end
+  
+endd); @@api_senderid = api_senderid; end
   def self.api_senderid; @@api_senderid; end
   
 end
