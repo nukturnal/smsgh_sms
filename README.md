@@ -22,8 +22,8 @@ Setup your SMSGH API username and password
 
 If you are using the old API (V2) then
 
-	SmsghSms_Old.api_username = "YOUR_USERNAME"
-	SmsghSms_Old.api_password = "YOUR_PASSWORD"
+	SmsghSms.api_username = "YOUR_USERNAME"
+	SmsghSms.api_password = "YOUR_PASSWORD"
 
 If you are using the new API (V3) then
 
@@ -32,8 +32,7 @@ If you are using the new API (V3) then
 	
 Optionally set global Sender ID
 
-	SmsghSms_Old.api_senderid = "YOUR_SENDERID" for V2 of the API
-	SmsghSms.api_senderid = "YOUR_SENDERID" for V3 of the API
+	SmsghSms.api_senderid = "YOUR_SENDERID"
 	
 Sending an SMS Message
 
