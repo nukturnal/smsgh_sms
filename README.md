@@ -20,12 +20,20 @@ Or install it yourself as:
 
 Setup your SMSGH API username and password
 
-	SmsghSms.api_username = "YOUR_USERNAME"
-	SmsghSms.api_password = "YOUR_PASSWORD"
+If you are using the old API (V2) then
+
+	SmsghSms_Old.api_username = "YOUR_USERNAME"
+	SmsghSms_Old.api_password = "YOUR_PASSWORD"
+
+If you are using the new API (V3) then
+
+	SmsghSms.api_client_id = "YOUR_CLIENT_ID"
+	SmsghSms.api_client_secret = "YOUR_CLIENT_SECRET"
 	
 Optionally set global Sender ID
 
-	SmsghSms.api_senderid = "YOUR_SENDERID"
+	SmsghSms_Old.api_senderid = "YOUR_SENDERID" for V2 of the API
+	SmsghSms.api_senderid = "YOUR_SENDERID" for V3 of the API
 	
 Sending an SMS Message
 
