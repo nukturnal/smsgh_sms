@@ -14,5 +14,5 @@ Gem::Specification.new do |gem|
   gem.name          = "smsgh_sms"
   gem.require_paths = ["lib"]
   gem.version       = SmsghSms::VERSION
-  gem.add_dependency "curb-fu"
+  gem.add_dependency "curb-fu", "~> 0"
 end
