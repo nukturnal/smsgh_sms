@@ -23,7 +23,7 @@ module SmsghSms
     end
 
     if @@api_client_id != nil && @@api_client_secret != nil
-      response = CurbFu.get({:host => 'api.smsgh.com', :path => '/v3/messages/send', :protocol => 'https'}, { :From => sender_id, :To => options[:to], :Content => options[:msg], :ClientId => @@api_client_id, :ClientSecret => @@api_client_secret })
+      response = CurbFu.get({:host => 'api.smsgh.com', :path => '/v3/messages/send', :protocol => 'http'}, { :From => sender_id, :To => options[:to], :Content => options[:msg], :ClientId => @@api_client_id, :ClientSecret => @@api_client_secret })
     end
 
     {:status => response.status, :notice => response.body}
