@@ -33,16 +33,17 @@ module SmsghSms
 
   def self.api_username=(api_username); @@api_username = api_username; end
   def self.api_username; @@api_username; end
+
   def self.api_password=(api_password); @@api_password = api_password; end
   def self.api_password; @@api_password; end
+
   def self.api_client_id=(api_client_id); @@api_client_id = api_client_id; end
   def self.api_client_id; @@api_client_id; end
+
   def self.api_client_secret=(api_client_secret); @@api_client_secret = api_client_secret; end
   def self.api_client_secret; @@api_client_secret; end
-  def self.api_senderid=(api_senderid); @@api_senderid = api_senderid; end
-  def self.api_senderid; @@api_senderid; end
 
-endd); @@api_senderid = api_senderid; end
+  def self.api_senderid=(api_senderid); @@api_senderid = api_senderid; end
   def self.api_senderid; @@api_senderid; end
 
 end
