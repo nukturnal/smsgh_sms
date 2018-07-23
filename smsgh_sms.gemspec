@@ -3,7 +3,7 @@ require File.expand_path('../lib/smsgh_sms/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Alfred Rowe"]
-  gem.email         = ["alfred@ncodedevlabs.com"]
+  gem.email         = ["alfred@encodevlabs.com"]
   gem.description   = %q{This is a ruby wrapper that abstracts the SMSGH's SMS API. This gem has extra garnishing to make smsing via Ruby more tasteful and less painful.'}
   gem.summary       = %q{Send SMS via SMSGH's API}
   gem.homepage      = "https://github.com/nukturnal/smsgh_sms"
@@ -14,6 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "smsgh_sms"
   gem.require_paths = ["lib"]
   gem.version       = SmsghSms::VERSION
-  gem.add_dependency "curb-fu", "~> 0"
+  gem.add_dependency "http", "~> 3.3.0"
   gem.add_dependency "nokogiri"
 end

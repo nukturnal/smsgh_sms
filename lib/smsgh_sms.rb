@@ -1,6 +1,6 @@
 require "smsgh_sms/version"
 require 'cgi'
-require 'curb-fu'
+require 'http'
 require 'nokogiri'
 
 module SmsghSms
@@ -9,6 +9,7 @@ module SmsghSms
   @@api_client_id = nil
   @@api_client_secret = nil
   @@api_senderid = "SMSGHAPI"
+  ROOT_URL = "api.smsgh.com"
 
   # Expects :msg, :to and an optional :from param
   # The :from param defaults to @@api_senderid when its omitted
@@ -23,15 +24,13 @@ module SmsghSms
     message = Nokogiri::HTML.parse(message).text
 
     if @@api_username != nil && @@api_password != nil
-      response = CurbFu.get({:host => 'api.smsgh.com', :path => '/v2/messages/send'}, { :from => sender_id, :to => options[:to], :text => message, :username => @@api_username, :password => @@api_password })
+      response = HTTP.get("#{ROOT_URL}/v2/messages/send", params: {from: sender_id, to: options[:to], text: message, username: @@api_username, password: @@api_password})
     end
 
     if @@api_client_id != nil && @@api_client_secret != nil
-      response = CurbFu.get({:host => 'api.smsgh.com', :path => '/v3/messages/send', :protocol => 'http'}, { :From => sender_id, :To => options[:to], :Content => message, :ClientId => @@api_client_id, :ClientSecret => @@api_client_secret })
+      response = HTTP.get("#{ROOT_URL}/v3/messages/send", params: {From: sender_id, To: options[:to], Content: message, ClientId: @@api_client_id, ClientSecret: @@api_client_secret})
     end
-
-    {:status => response.status, :notice => response.body}
-
+    { status: response.code, notice: response.body }
   end
 
 
