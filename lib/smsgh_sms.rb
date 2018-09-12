@@ -9,7 +9,7 @@ module SmsghSms
   @@api_client_id = nil
   @@api_client_secret = nil
   @@api_senderid = "SMSGHAPI"
-  ROOT_URL = "api.smsgh.com"
+  ROOT_URL = "https://api.smsgh.com"
 
   # Expects :msg, :to and an optional :from param
   # The :from param defaults to @@api_senderid when its omitted
