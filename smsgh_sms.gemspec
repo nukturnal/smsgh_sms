@@ -14,6 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "smsgh_sms"
   gem.require_paths = ["lib"]
   gem.version       = SmsghSms::VERSION
-  gem.add_dependency "http", "~> 2.1"
+  gem.add_dependency "http", "~> 3.3.0"
   gem.add_dependency "nokogiri"
 end
